@@ -1,0 +1,529 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.new.png">
+  <link rel="icon" type="image/png" href="/img/favicon.new.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="前端菜鸟">
+  <meta name="author" content="Godfirst">
+  <meta name="keywords" content="前端">
+  <title>JS高级第四天 - God-firstttttt</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"god-firstttttt.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>God-firstttttt</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="JS高级第四天">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-04 22:14" pubdate>
+        2021年2月4日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      27
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JS高级第四天</h1>
+            
+            <div class="markdown-body">
+              <h1 id="JS高级第4天"><a href="#JS高级第4天" class="headerlink" title="JS高级第4天"></a>JS高级第4天</h1><h2 id="一、正则表达式概述"><a href="#一、正则表达式概述" class="headerlink" title="一、正则表达式概述"></a>一、正则表达式概述</h2><h3 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h3><p>正则表达式（ Regular Expression ）是用于匹配字符串中字符组合的模式，在数据类型中是属于对象</p>
+<h3 id="2、作用"><a href="#2、作用" class="headerlink" title="2、作用"></a>2、作用</h3><p>正则表达式通常用来校验、查找、替换指定规则的字符文本</p>
+<ul>
+<li><p>验证表单，如：只能输入英文、字母、数字和下划线</p>
+</li>
+<li><p> 过滤页面内容中的敏感词汇，或者对指定字符组合进行替换 </p>
+</li>
+<li><p> 从字符串中提取我们想要的特定部分</p>
+</li>
+</ul>
+<h3 id="3、特点"><a href="#3、特点" class="headerlink" title="3、特点"></a>3、特点</h3><ul>
+<li>灵活性、逻辑性和功能性 （强大）</li>
+<li>简单高效</li>
+<li>可读性稍差，不便于记忆（一般复制相关的正则表达式，修改后即可使用）</li>
+</ul>
+<h2 id="二、正则表达式在js中的使用"><a href="#二、正则表达式在js中的使用" class="headerlink" title="二、正则表达式在js中的使用"></a>二、正则表达式在js中的使用</h2><h3 id="1、正则表达式的创建"><a href="#1、正则表达式的创建" class="headerlink" title="1、正则表达式的创建"></a>1、正则表达式的创建</h3><p>1.造函数方式 RegExp，创建正则表达式 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> reg = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-regexp">/123/</span>);<br>        <span class="hljs-built_in">console</span>.log(reg);<br></code></pre></td></tr></table></figure>
+<p>2.字面量方式创建正则表达式 /表达式/</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> reg2 = <span class="hljs-regexp">/123/</span>;<br></code></pre></td></tr></table></figure>
+<h3 id="2、正则表达式的-test-方法"><a href="#2、正则表达式的-test-方法" class="headerlink" title="2、正则表达式的 test 方法"></a>2、正则表达式的 test 方法</h3><p>检测字符串是否符合正则表达式定义的规则，返回 true 或 false</p>
+<ul>
+<li>语法： reg.test(str)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> reg2 = <span class="hljs-regexp">/123/</span>;<br><span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-string">&#x27;刺客123&#x27;</span>));<span class="hljs-comment">//true</span><br></code></pre></td></tr></table></figure>
+<h2 id="三、正则表达式中的特殊字符"><a href="#三、正则表达式中的特殊字符" class="headerlink" title="三、正则表达式中的特殊字符"></a>三、正则表达式中的特殊字符</h2><h3 id="1、正则表达式的组成"><a href="#1、正则表达式的组成" class="headerlink" title="1、正则表达式的组成"></a>1、正则表达式的组成</h3><p> 一个正则表达式可以由简单的字符构成，比如 /123/, 也可以是简单和特殊字符的组合，比如：/^abc/</p>
+<p>   其中，特殊字符又叫元字符，是在表达式中有特殊意义的字符，如 ^, $, . 等</p>
+<p>特殊字符非常多，可以参考： </p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions">MDN</a></p>
+<h3 id="2、边界符（位置符）"><a href="#2、边界符（位置符）" class="headerlink" title="2、边界符（位置符）"></a>2、边界符（位置符）</h3><p>主要用来匹配字符的开始和结束位置:</p>
+<p>   (1) ^: 用来匹配以…开头</p>
+<p>   (2) $: 用来匹配以…结尾</p>
+<p>注意：</p>
+<ul>
+<li>不使用 ^ 和 $ 表示只要字符串中包含匹配的内容就返回 true, 可以多出其他任意字符</li>
+<li> ^ 和 $ 在一起配合使用，表示是精确匹配, 不能多出其他字符也不能少 (必须满足数量和类型都一致)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> reg1 = <span class="hljs-regexp">/^567/</span>; <span class="hljs-comment">//字符串中必须以567开头</span><br>     <span class="hljs-built_in">console</span>.log(reg1.test(<span class="hljs-string">&#x27;刺客567&#x27;</span>)); <span class="hljs-comment">//false</span><br>     <span class="hljs-built_in">console</span>.log(reg1.test(<span class="hljs-string">&#x27;561237&#x27;</span>)); <span class="hljs-comment">//false</span><br>     <span class="hljs-built_in">console</span>.log(reg1.test(<span class="hljs-string">&#x27;567刺客&#x27;</span>)); <span class="hljs-comment">//true</span><br>     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;-------------------------------&#x27;</span>);<br>     <span class="hljs-keyword">var</span> reg2 = <span class="hljs-regexp">/ad$/</span>; <span class="hljs-comment">//字符串中必须以ad结尾</span><br>     <span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-string">&#x27;ADad&#x27;</span>)); <span class="hljs-comment">//true</span><br>     <span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-string">&#x27;adfgad&#x27;</span>)); <span class="hljs-comment">//true</span><br>     <span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-string">&#x27;afgd&#x27;</span>)); <span class="hljs-comment">//false</span><br>     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;-------------------------------&#x27;</span>);<br>     <span class="hljs-keyword">var</span> reg3 = <span class="hljs-regexp">/^adc$/</span>; <span class="hljs-comment">//字符串中数量和类型必须符合adc</span><br>     <span class="hljs-built_in">console</span>.log(reg3.test(<span class="hljs-string">&#x27;adc&#x27;</span>)); <span class="hljs-comment">//true</span><br>     <span class="hljs-built_in">console</span>.log(reg3.test(<span class="hljs-string">&#x27;adcadc&#x27;</span>)); <span class="hljs-comment">//false</span><br></code></pre></td></tr></table></figure>
+<h3 id="3、字符类"><a href="#3、字符类" class="headerlink" title="3、字符类"></a>3、字符类</h3><h4 id="3-1、字符集合-如：-xyz"><a href="#3-1、字符集合-如：-xyz" class="headerlink" title="3.1、字符集合 如：[xyz]"></a>3.1、字符集合 如：[xyz]</h4><p>表示匹配字符集合中的任意字符，中括号中只要有任意一个字符出现在字符串就满足规则</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> reg1 = <span class="hljs-regexp">/[xyz]123/</span>; <span class="hljs-comment">//规则：只要包含x,y,z中任意一个再跟着123就满足条件</span><br>        <span class="hljs-built_in">console</span>.log(reg1.test(<span class="hljs-string">&#x27;xy123&#x27;</span>)); <span class="hljs-comment">//true</span><br>        <span class="hljs-built_in">console</span>.log(reg1.test(<span class="hljs-string">&#x27;ad123&#x27;</span>)); <span class="hljs-comment">//false</span><br><br> <span class="hljs-keyword">var</span> reg2 = <span class="hljs-regexp">/^[adc]456$/</span>; <span class="hljs-comment">//精确匹配，字符的数量和类型都必须满足（数量：4，类型：a456,b456,c456）</span><br>        <span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-string">&#x27;a456&#x27;</span>)); <span class="hljs-comment">//true</span><br>        <span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-string">&#x27;b456&#x27;</span>)); <span class="hljs-comment">//false</span><br>        <span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-string">&#x27;adc456&#x27;</span>)); <span class="hljs-comment">//false</span><br></code></pre></td></tr></table></figure>
+<h4 id="3-2中括号中的特殊字符自动转义"><a href="#3-2中括号中的特殊字符自动转义" class="headerlink" title="3.2中括号中的特殊字符自动转义"></a>3.2中括号中的特殊字符自动转义</h4><p>用破折号（-）来指定一个字符范围，如：[c-f1-3A-D]</p>
+<p>注意:</p>
+<ul>
+<li> 对于点（.）和星号（*）这样的特殊符号中括号中自动转义为原本的意义</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> reg3 = <span class="hljs-regexp">/^[c-f1-3A-D]$/</span>; <span class="hljs-comment">//精确匹配，只能是cdf123ABCD中的一个</span><br>        <span class="hljs-built_in">console</span>.log(reg3.test(<span class="hljs-string">&#x27;asd&#x27;</span>)); <span class="hljs-comment">//false</span><br>        <span class="hljs-built_in">console</span>.log(reg3.test(<span class="hljs-string">&#x27;cdf&#x27;</span>)); <span class="hljs-comment">//false</span><br>        <span class="hljs-built_in">console</span>.log(reg3.test(<span class="hljs-string">&#x27;cdf123ABCD&#x27;</span>)); <span class="hljs-comment">//false</span><br>        <span class="hljs-built_in">console</span>.log(reg3.test(<span class="hljs-string">&#x27;c&#x27;</span>)); <span class="hljs-comment">//true</span><br></code></pre></td></tr></table></figure>
+<h4 id="3-3反向字符集合"><a href="#3-3反向字符集合" class="headerlink" title="3.3反向字符集合"></a>3.3反向字符集合</h4><p>表示匹配没有包含在字符集合中的字符，字符串中只要有一个不在中括号内的字符就满足规则 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> reg2 = <span class="hljs-regexp">/^[^a-f]$/</span>; <span class="hljs-comment">//精准匹配（数量1，类型，不在小写a到f之间的其他字符）</span><br>       <span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-string">&#x27;a&#x27;</span>)); <span class="hljs-comment">//false</span><br>       <span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-string">&#x27;z&#x27;</span>)); <span class="hljs-comment">//true</span><br></code></pre></td></tr></table></figure>
+<h3 id="4、量词符"><a href="#4、量词符" class="headerlink" title="4、量词符"></a>4、量词符</h3><p>用来制定某个字符出现次数的特殊符号</p>
+<h4 id="4-1"><a href="#4-1" class="headerlink" title="4.1 *"></a>4.1 *</h4><p>表示前面的字符出现 0 次或多次, 即可有可无(数量&gt;=0)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> reg1 = <span class="hljs-regexp">/^ab*c$/</span>; <span class="hljs-comment">//规则：字符串必须以a开头，b字符可有可无，后面一定跟着c</span><br>        <span class="hljs-built_in">console</span>.log(reg1.test(<span class="hljs-string">&#x27;abbcd&#x27;</span>)); <span class="hljs-comment">//false</span><br>        <span class="hljs-built_in">console</span>.log(reg1.test(<span class="hljs-string">&#x27;abbc&#x27;</span>)); <span class="hljs-comment">//true</span><br>        <span class="hljs-built_in">console</span>.log(reg1.test(<span class="hljs-string">&#x27;ac&#x27;</span>)); <span class="hljs-comment">//true</span><br>        <span class="hljs-built_in">console</span>.log(reg1.test(<span class="hljs-string">&#x27;aac&#x27;</span>)); <span class="hljs-comment">//false</span><br></code></pre></td></tr></table></figure>
+<h4 id="4-2"><a href="#4-2" class="headerlink" title="4.2 +"></a>4.2 +</h4><p>表示前面的字符至少出现 1 次或多次, 即至少出现一次</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> reg2 = <span class="hljs-regexp">/^ab+c$/</span>; <span class="hljs-comment">//规则：字符串必须以a开头，b字符至少出现一次，后面一定跟着c</span><br>        <span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-string">&#x27;abbcd&#x27;</span>)); <span class="hljs-comment">//false</span><br>        <span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-string">&#x27;abbc&#x27;</span>)); <span class="hljs-comment">//true</span><br>        <span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-string">&#x27;ac&#x27;</span>)); <span class="hljs-comment">//false</span><br>        <span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-string">&#x27;aac&#x27;</span>)); <span class="hljs-comment">//false</span><br></code></pre></td></tr></table></figure>
+<h4 id="4-3"><a href="#4-3" class="headerlink" title="4.3 ?"></a>4.3 ?</h4><p>表示前面的字符出现 0 次或 1 次, 要么不出现, 要么只出现 1 次</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> reg3 = <span class="hljs-regexp">/^[0-9a-z]?$/</span>; <span class="hljs-comment">//规则：字符串必须以0-9或a-z开头，只能出现一次</span><br>        <span class="hljs-built_in">console</span>.log(reg3.test(<span class="hljs-string">&#x27;abbcd&#x27;</span>)); <span class="hljs-comment">//false</span><br>        <span class="hljs-built_in">console</span>.log(reg3.test(<span class="hljs-string">&#x27;abbc&#x27;</span>)); <span class="hljs-comment">//false</span><br>        <span class="hljs-built_in">console</span>.log(reg3.test(<span class="hljs-string">&#x27;ac&#x27;</span>)); <span class="hljs-comment">//false</span><br>        <span class="hljs-built_in">console</span>.log(reg3.test(<span class="hljs-string">&#x27;aac&#x27;</span>)); <span class="hljs-comment">//false</span><br>        <span class="hljs-built_in">console</span>.log(reg3.test(<span class="hljs-string">&#x27;0&#x27;</span>)); <span class="hljs-comment">//true</span><br>        <span class="hljs-built_in">console</span>.log(reg3.test(<span class="hljs-string">&#x27;a&#x27;</span>)); <span class="hljs-comment">//true</span><br></code></pre></td></tr></table></figure>
+<h4 id="4-4-3"><a href="#4-4-3" class="headerlink" title="4.4 {3}"></a>4.4 {3}</h4><p>表示前面的字符只能出现 3 次</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> reg4 = <span class="hljs-regexp">/^[0-9a-z]&#123;3&#125;$/</span>; <span class="hljs-comment">//规则：字符串必须以0-9或a-z开头，只能出现3次</span><br>        <span class="hljs-built_in">console</span>.log(reg4.test(<span class="hljs-string">&#x27;abbcd&#x27;</span>)); <span class="hljs-comment">//false</span><br>        <span class="hljs-built_in">console</span>.log(reg4.test(<span class="hljs-string">&#x27;abbc&#x27;</span>)); <span class="hljs-comment">//false</span><br>        <span class="hljs-built_in">console</span>.log(reg4.test(<span class="hljs-string">&#x27;ac&#x27;</span>)); <span class="hljs-comment">//false</span><br>        <span class="hljs-built_in">console</span>.log(reg4.test(<span class="hljs-string">&#x27;aac&#x27;</span>)); <span class="hljs-comment">//true</span><br>        <span class="hljs-built_in">console</span>.log(reg4.test(<span class="hljs-string">&#x27;0&#x27;</span>)); <span class="hljs-comment">//false</span><br>        <span class="hljs-built_in">console</span>.log(reg4.test(<span class="hljs-string">&#x27;a&#x27;</span>)); <span class="hljs-comment">//false</span><br></code></pre></td></tr></table></figure>
+<h4 id="4-5-3"><a href="#4-5-3" class="headerlink" title="4.5 {3,}"></a>4.5 {3,}</h4><p>表示前面的字符出现 3 次 或 3次以上</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> reg5 = <span class="hljs-regexp">/^[0-9a-z]&#123;3,&#125;$/</span>; <span class="hljs-comment">//规则：字符串必须以0-9或a-z开头，只能出现3次或三次以上</span><br>        <span class="hljs-built_in">console</span>.log(reg5.test(<span class="hljs-string">&#x27;abbcd&#x27;</span>)); <span class="hljs-comment">//true</span><br>        <span class="hljs-built_in">console</span>.log(reg5.test(<span class="hljs-string">&#x27;abbc&#x27;</span>)); <span class="hljs-comment">//true</span><br>        <span class="hljs-built_in">console</span>.log(reg5.test(<span class="hljs-string">&#x27;ac&#x27;</span>)); <span class="hljs-comment">//false</span><br>        <span class="hljs-built_in">console</span>.log(reg5.test(<span class="hljs-string">&#x27;aac&#x27;</span>)); <span class="hljs-comment">//true</span><br>        <span class="hljs-built_in">console</span>.log(reg5.test(<span class="hljs-string">&#x27;0&#x27;</span>)); <span class="hljs-comment">//false</span><br>        <span class="hljs-built_in">console</span>.log(reg5.test(<span class="hljs-string">&#x27;a&#x27;</span>)); <span class="hljs-comment">//false</span><br></code></pre></td></tr></table></figure>
+<h4 id="4-6-3-5"><a href="#4-6-3-5" class="headerlink" title="4.6 {3,5}"></a>4.6 {3,5}</h4><p>表示前面的字符出现 3 次 到 5 次以内</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> reg6 = <span class="hljs-regexp">/^[0-9a-z]&#123;3,5&#125;$/</span>; <span class="hljs-comment">//规则：字符串必须以0-9或a-z开头，只能出现3到5次</span><br>       <span class="hljs-comment">// 注意&#123;3,5&#125;之间不能有空格</span><br>       <span class="hljs-built_in">console</span>.log(reg6.test(<span class="hljs-string">&#x27;abbcd&#x27;</span>)); <span class="hljs-comment">//true</span><br>       <span class="hljs-built_in">console</span>.log(reg6.test(<span class="hljs-string">&#x27;abbcd123&#x27;</span>)); <span class="hljs-comment">//false</span><br>       <span class="hljs-built_in">console</span>.log(reg6.test(<span class="hljs-string">&#x27;abbc&#x27;</span>)); <span class="hljs-comment">//true</span><br>       <span class="hljs-built_in">console</span>.log(reg6.test(<span class="hljs-string">&#x27;ac&#x27;</span>)); <span class="hljs-comment">//false</span><br>       <span class="hljs-built_in">console</span>.log(reg6.test(<span class="hljs-string">&#x27;aac&#x27;</span>)); <span class="hljs-comment">//true</span><br>       <span class="hljs-built_in">console</span>.log(reg6.test(<span class="hljs-string">&#x27;0&#x27;</span>)); <span class="hljs-comment">//false</span><br>       <span class="hljs-built_in">console</span>.log(reg6.test(<span class="hljs-string">&#x27;a&#x27;</span>)); <span class="hljs-comment">//false</span><br></code></pre></td></tr></table></figure>
+<h3 id="5、-括号总结"><a href="#5、-括号总结" class="headerlink" title="5、 括号总结"></a>5、 括号总结</h3><ul>
+<li>中括号 [xyz] 字符集合：匹配方括号中的任意字符</li>
+<li> 大括号 {3,8} 量词符：表示重复的次数</li>
+<li>小括号 (xyz): 表示一个整体</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> reg = <span class="hljs-regexp">/^*(xyz)&#123;2&#125;$/</span>;<br>       <span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">&#x27;xyzxyz&#x27;</span>));<span class="hljs-comment">//true</span><br>       <span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">&#x27;xyzxyzxyz&#x27;</span>));<span class="hljs-comment">//false</span><br></code></pre></td></tr></table></figure>
+<h3 id="6、正则表达式中的预定义类"><a href="#6、正则表达式中的预定义类" class="headerlink" title="6、正则表达式中的预定义类"></a>6、正则表达式中的预定义类</h3><ul>
+<li>\d：匹配 0~9 之间的任意一个数字，等价于 [0-9]</li>
+<li>\D: 匹配所有 0~9 之外的字符，等价于 [^0-9]</li>
+<li>\w: 匹配任意的字母、数字和下划线，等价于 [a-zA-Z0-9_]</li>
+<li>\W: 匹配任意的字母、数字和下划线之外的字符，等价于 [^0-9a-zA-Z_]</li>
+<li>\s: 匹配所有的空格（包括换行符，制表符，空格符等），等价于 [\t\r\n\v\f]</li>
+<li> \S：匹配所有的非空格符，等价于 [^\t\r\n\v\f]</li>
+<li> .也是正则中的一个特殊字符：（小数点）默认匹配除换行符之外的任何单个字符</li>
+</ul>
+<p>  <strong>记忆</strong>：所有大写字符表示 “非”, 上述预定义类只表示单个字符</p>
+<h2 id="四、正则替换replace"><a href="#四、正则替换replace" class="headerlink" title="四、正则替换replace"></a>四、正则替换replace</h2><h3 id="1、replace"><a href="#1、replace" class="headerlink" title="1、replace"></a>1、replace</h3><p>replace(reg, 替换后的字符) 可以替换字符串中的字符，参数可以是普通字符串，也可以是正则表达式</p>
+<h3 id="2、正则表达式参数-表达式-参数"><a href="#2、正则表达式参数-表达式-参数" class="headerlink" title="2、正则表达式参数 /表达式/参数"></a>2、正则表达式参数 /表达式/参数</h3><p>指定匹配的模式：</p>
+<p>   （1）/表达式/g  全局匹配</p>
+<p>   （2）/表达式/i  忽略大小写进行匹配</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;input type=<span class="hljs-string">&quot;text&quot;</span> placeholder=<span class="hljs-string">&quot;请输入留言&quot;</span>&gt;<br><span class="hljs-keyword">var</span> ipt = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;input&#x27;</span>);<br>ipt.addEventListener(<span class="hljs-string">&#x27;keyup&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>            <span class="hljs-built_in">this</span>.value = <span class="hljs-built_in">this</span>.value.replace(<span class="hljs-regexp">/傻叉|傻\s*叉|sx/gi</span>, <span class="hljs-string">&#x27;**&#x27;</span>)<br>        &#125;)<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="3、match-方法"><a href="#3、match-方法" class="headerlink" title="3、match 方法"></a>3、match 方法</h3><p>可以配合正则表达式, 从字符串中找出所有匹配正则的字符</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> reg = <span class="hljs-regexp">/\d&#123;3&#125;/g</span>;<br>        <span class="hljs-keyword">var</span> res = str.match(reg);<br>        <span class="hljs-built_in">console</span>.log(res);<br></code></pre></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95/">相关方法</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/JS%E9%AB%98%E7%BA%A7/">JS高级</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/04/JS%E7%AC%AC%E4%BA%94%E5%A4%A9/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JS高级第五天</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/04/JS%E9%AB%98%E7%BA%A7%E7%AC%AC%E4%B8%89%E5%A4%A9/">
+                        <span class="hidden-mobile">JS高级第三天</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
