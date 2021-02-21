@@ -1,0 +1,544 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.new.png">
+  <link rel="icon" type="image/png" href="/img/favicon.new.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="前端菜鸟">
+  <meta name="author" content="Godfirst">
+  <meta name="keywords" content="前端">
+  <title>Node.js（二） - God-firstttttt</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"god-firstttttt.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>God-firstttttt</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Node.js（二）">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-21 23:14" pubdate>
+        2021年2月21日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      20
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Node.js（二）</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Node-js第二天"><a href="#Node-js第二天" class="headerlink" title="Node.js第二天"></a>Node.js第二天</h1><h2 id="一、http模块介绍"><a href="#一、http模块介绍" class="headerlink" title="一、http模块介绍"></a>一、http模块介绍</h2><h3 id="1、服务器和客户端的概念回顾"><a href="#1、服务器和客户端的概念回顾" class="headerlink" title="1、服务器和客户端的概念回顾"></a>1、服务器和客户端的概念回顾</h3><p>​    客户端负责向服务器发送请求, 获取数据并进行使用; </p>
+<p>   服务器负责接收来自客户端的网络请求, 处理数据并进行返回</p>
+<h3 id="2、http-内置模块"><a href="#2、http-内置模块" class="headerlink" title="2、http 内置模块"></a>2、http 内置模块</h3><p>提供了创建 Web 服务器和客户端的相关 API</p>
+<h3 id="3、使用-Node-创建服务器的优势"><a href="#3、使用-Node-创建服务器的优势" class="headerlink" title="3、使用 Node 创建服务器的优势"></a>3、使用 Node 创建服务器的优势</h3><p>无需安装和配置复杂的后台环境, 只需要几行代码就可以开启一个服务器, 十分精巧</p>
+<h2 id="二、服务器相关概念"><a href="#二、服务器相关概念" class="headerlink" title="二、服务器相关概念"></a>二、服务器相关概念</h2><h3 id="1、IP-地址"><a href="#1、IP-地址" class="headerlink" title="1、IP 地址"></a>1、IP 地址</h3><p>   用来标识互联网上一台计算机的唯一地址编号, 只有访问正确的 IP 地址才能和计算机进行数据通信</p>
+<h3 id="2、IP-地址格式"><a href="#2、IP-地址格式" class="headerlink" title="2、IP 地址格式"></a>2、IP 地址格式</h3><p>   采用 “点分十进制” 表示成 A.B.C.D 的形式, 就是用4个从0~255的数字，来表示一个IP地址, 比如：</p>
+<p>  我们在终端输入 <code>ipconfig</code> 可以查看本机的 IPv4 地址格式</p>
+<h3 id="3、了解-ping-命令"><a href="#3、了解-ping-命令" class="headerlink" title="3、了解 ping 命令"></a>3、了解 ping 命令</h3><p>   在终端执行 <code>ping 域名</code>, 可以获取当前域名的 IP 地址并测试出网络连接情况</p>
+<h2 id="三、域名和域名服务器"><a href="#三、域名和域名服务器" class="headerlink" title="三、域名和域名服务器"></a>三、域名和域名服务器</h2><h3 id="1、域名-和-IP地址"><a href="#1、域名-和-IP地址" class="headerlink" title="1、域名 和 IP地址"></a>1、域名 和 IP地址</h3><p>   域名和 IP 地址是一一对应的关系, 它是 IP 地址字符型的表达, 这种映射关系被存放在一台 DNS 服务器上</p>
+<h3 id="2、DNS（Domain-Name-System）"><a href="#2、DNS（Domain-Name-System）" class="headerlink" title="2、DNS（Domain Name System）"></a>2、DNS（Domain Name System）</h3><p>   专门用来管理互联网上域名和 IP 对应关系的公网服务器</p>
+<h3 id="3、本地计算机的-IP-和-域名"><a href="#3、本地计算机的-IP-和-域名" class="headerlink" title="3、本地计算机的 IP 和 域名"></a>3、本地计算机的 IP 和 域名</h3><p>   开发测试时, 本地计算机 IP 一般是 127.0.0.1, 对应的域名是 localhost, 没有使用区别</p>
+<h2 id="四、端口"><a href="#四、端口" class="headerlink" title="四、端口"></a>四、端口</h2><h3 id="1、端口的概念"><a href="#1、端口的概念" class="headerlink" title="1、端口的概念"></a>1、端口的概念</h3><p>   IP 地址可以用来标识唯一的计算机地址, 但是计算机上运行的不同服务无法仅用 IP 来标识, 于是使用了</p>
+<p>  IP + 端口号的方式来区分不同的服务, 每个服务都对应着一个唯一的端口号</p>
+<h3 id="2、端口的作用"><a href="#2、端口的作用" class="headerlink" title="2、端口的作用"></a>2、端口的作用</h3><p>   客户端发送的请求, 通过指定的端口号, 可以把请求交给对应的服务来进行处理</p>
+<p>  注意： </p>
+<p>   ULR 中的端口号如果是 80, 一般可以省略</p>
+<h2 id="五、创建服务器步骤"><a href="#五、创建服务器步骤" class="headerlink" title="五、创建服务器步骤"></a>五、创建服务器步骤</h2><ol>
+<li><p>引入 http 模块 </p>
+</li>
+<li><p>创建服务实例</p>
+</li>
+<li><p>绑定事件, 监听请求</p>
+</li>
+<li><p>监听端口, 启动服务</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 引入http模块</span><br><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;http&#x27;</span>);<br><span class="hljs-keyword">const</span> server = http.createServer(<span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;有人访问服务器&#x27;</span>);<br>&#125;).listen(<span class="hljs-number">3006</span>,<span class="hljs-function">()=&gt;</span>&#123;<br>     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Server running at http://127.0.0.1:3006&#x27;</span>);<br>&#125;);<br></code></pre></td></tr></table></figure>
+<h2 id="六、请求对象和响应对象"><a href="#六、请求对象和响应对象" class="headerlink" title="六、请求对象和响应对象"></a>六、请求对象和响应对象</h2><p>Node 服务器接收到了客户端的请求, 就会调用给服务器绑定的 request 请求事件处理函数, 函数的第一个参数</p>
+<p> 是 Node 封装好的请求对象, 第二个参数是响应对象 </p>
+<h3 id="1、requset-请求对象"><a href="#1、requset-请求对象" class="headerlink" title="1、requset 请求对象"></a>1、requset 请求对象</h3><p>   提供了获取客户端相关的请求属性, 比如: </p>
+<p>   - req.url 请求的路径</p>
+<p>   - req.method 请求的方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;http&#x27;</span>)<br><br><span class="hljs-comment">// 创建服务实例createServer()</span><br><span class="hljs-keyword">const</span> server = http.createServer(<span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`当前的请求路径为<span class="hljs-subst">$&#123;req.url&#125;</span>,请求方式是<span class="hljs-subst">$&#123;req.method&#125;</span>`</span>);<br>&#125;)<br><br><span class="hljs-comment">// 监听端口，开启服务</span><br>server.listen(<span class="hljs-number">3006</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;开启服务成功，请访问:http://localhost:3006&#x27;</span>);<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="2、response-响应对象"><a href="#2、response-响应对象" class="headerlink" title="2、response 响应对象"></a>2、response 响应对象</h3><p>   提供了服务器响应数据相关的方法, 比如：</p>
+<p>   - res.setHeader() 设置响应头</p>
+<p>   - res.end() 响应数据内容</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;http&#x27;</span>);<br><br><span class="hljs-comment">// 定义计数器</span><br><span class="hljs-keyword">let</span> num = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">const</span> server = http.createServer(<span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>    <span class="hljs-comment">// res提供了服务端响应数据的方法</span><br>    <span class="hljs-comment">// 1.响应数据给客户端 2.直接终止当前的请求</span><br>    <span class="hljs-keyword">if</span> (req.url !== <span class="hljs-string">&#x27;/favicon.ico&#x27;</span>) &#123;<br><br>        <span class="hljs-comment">// 设置一个响应头，指定文件类型和编码方式</span><br>        res.setHeader(<span class="hljs-string">&#x27;Content-Type&#x27;</span>, <span class="hljs-string">&#x27;text/html;charset=utf-8&#x27;</span>)<br>        res.end(<span class="hljs-string">`&lt;h3&gt;hello 你是第<span class="hljs-subst">$&#123;++num&#125;</span>位访问者!&lt;/h3&gt;`</span>);<br>        <span class="hljs-comment">// console.log(123);</span><br>    &#125;<br>    <span class="hljs-comment">// res.end()不会终止后续代码的运行，但请求已终止</span><br>&#125;)<br><span class="hljs-comment">// 监听端口，开启服务</span><br>server.listen(<span class="hljs-number">3006</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;开启服务成功，地址:http://localhost:3006&#x27;</span>);<br>&#125;)<br></code></pre></td></tr></table></figure>
+<h2 id="七、模块化"><a href="#七、模块化" class="headerlink" title="七、模块化"></a>七、模块化</h2><h3 id="1、什么是模块化"><a href="#1、什么是模块化" class="headerlink" title="1、什么是模块化"></a>1、什么是模块化</h3><p>   把一个大的功能需求拆分成若干功能项的小模块, 每个模块可组合, 分解和更换, 这就是模块化思想</p>
+<h3 id="2、Node-js-中的模块化"><a href="#2、Node-js-中的模块化" class="headerlink" title="2、Node.js 中的模块化"></a>2、Node.js 中的模块化</h3><p>   把一个大的文件拆分成多个互相依赖的小文件, 每个文件就是一个模块</p>
+<h3 id="3、好处"><a href="#3、好处" class="headerlink" title="3、好处"></a>3、好处</h3><ol>
+<li>提高复用性 2. 代码可维护 3. 可以按需加载</li>
+</ol>
+<h3 id="4、模块化规范"><a href="#4、模块化规范" class="headerlink" title="4、模块化规范"></a>4、模块化规范</h3><p>模块在进行拆分和组合时需要遵守的规则, 主要考虑以下两点：</p>
+<ol>
+<li><p> <strong>如何把自身模块成员向外暴露</strong></p>
+</li>
+<li><p> <strong>如何把其他模块进行引入</strong></p>
+</li>
+</ol>
+<h3 id="5、Node-js中的模块分类"><a href="#5、Node-js中的模块分类" class="headerlink" title="5、Node.js中的模块分类"></a>5、Node.js中的模块分类</h3><ol>
+<li><p>内置模块 （由 Node.js 官方提供的, 例如 fs, path, http 等）</p>
+</li>
+<li><p>自定义模块 （自己创建的 js 文件）</p>
+</li>
+<li><p>第三方模块 （由第三方开发的模块, 使用前需要先下载）</p>
+</li>
+</ol>
+<h3 id="6、加载模块"><a href="#6、加载模块" class="headerlink" title="6、加载模块"></a>6、加载模块</h3><p>​        require() 方法</p>
+<p>  <strong>注意：</strong> </p>
+<p>​    加载内置模块和第三方模块，都是直接传入模块名，加载自己的模块需要传入文件路径，并省略 .js 后缀</p>
+<h3 id="7、模块作用域"><a href="#7、模块作用域" class="headerlink" title="7、模块作用域"></a>7、模块作用域</h3><p>不同模块中定义的方法和变量，只能在当前模块内访问，这种模块级别的限制叫做模块作用域</p>
+<ul>
+<li><p>其他作用域</p>
+<p>   局部作用域</p>
+<p>   全局作用域</p>
+<p>   块级作用域；使用let, const</p>
+</li>
+</ul>
+<h3 id="8、module和exports"><a href="#8、module和exports" class="headerlink" title="8、module和exports"></a>8、module和exports</h3><p><strong>exports:{ } 默认为空对象</strong></p>
+<ol>
+<li><p>module 对象的作用</p>
+<p>在每个模块中， module 这个内置的变量表示当前模块的引用</p>
+</li>
+<li><p>module.exports 对象作用</p>
+<p>把模块中的成员导出给外部, 供外界进行加载和调用</p>
+</li>
+<li><p>exports 对象</p>
+<p>exports 是 module.exports 的更简短的引用形式</p>
+</li>
+</ol>
+<p>  <strong>注意：</strong></p>
+<p>   (1) module.exports 的值就是当前模块最终导出的结果</p>
+<p>   (2) 可以通过 exports 访问和修改 module.exports 上的属性, 但不能通过赋值方式进行覆盖</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">module</span>.exports === &#123;&#125;); <span class="hljs-comment">//false 复杂数据类型比较的是地址值</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">module</span>.exports === <span class="hljs-built_in">exports</span>); <span class="hljs-comment">//true</span><br><br><span class="hljs-built_in">exports</span> = &#123;<br>    name: <span class="hljs-string">&#x27;xh&#x27;</span>,<br>    age: <span class="hljs-number">12</span><br>&#125;<br><span class="hljs-built_in">module</span>.exports = <span class="hljs-built_in">exports</span>;<br><span class="hljs-built_in">exports</span>.say = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">params</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">123</span>);<br>&#125;<br><span class="hljs-built_in">module</span>.exports.sing = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">params</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">456</span>);<br>&#125;;<br><span class="hljs-comment">//打印结果：&#123;</span><br><span class="hljs-comment">// name: &#x27;xh&#x27;,</span><br><span class="hljs-comment">//     age: 12,</span><br><span class="hljs-comment">//     say: [Function(anonymous)],</span><br><span class="hljs-comment">//     sing: [Function(anonymous)]</span><br><span class="hljs-comment">// &#125;</span><br><br><span class="hljs-comment">// 原因：指向相同的地址</span><br></code></pre></td></tr></table></figure>
+
+
+<p>  <strong>总结：</strong></p>
+<p>   (1) 尽量避免 exports 对象重新赋值，添加一个导出成员 exports.xx=xx,</p>
+<p>   (2) 声明新对象，使用module.exports={ xxx };</p>
+<h2 id="八、CommonJS规范"><a href="#八、CommonJS规范" class="headerlink" title="八、CommonJS规范"></a>八、CommonJS规范</h2><p>Node.js 中的模块化遵循 CommonJS (cjs) 规范，它规定了模块的特性和依赖方式：</p>
+<ol>
+<li><p>每个模块内部, module 变量代表当前模块</p>
+</li>
+<li><p>module 变量是一个对象, module.exports 属性是对外暴露的接口</p>
+</li>
+<li><p>加载某个模块, 就是加载该模块的 module.exports 属性, require() 是加载的方法</p>
+</li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Node-js/">Node.js</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Node-js/">Node.js</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/21/Node.js%E7%AC%AC%E4%B8%89%E5%A4%A9/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Node.js（三）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/21/%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
+                        <span class="hidden-mobile">Node.js模块加载机制</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
