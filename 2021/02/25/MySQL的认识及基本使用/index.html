@@ -17,7 +17,7 @@
   <meta name="description" content="前端菜鸟">
   <meta name="author" content="Godfirst">
   <meta name="keywords" content="前端">
-  <title>Hello World - God-firstttttt</title>
+  <title>MySQL的认识及基本使用 - God-firstttttt</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Hello World">
+            <span class="h2" id="subtitle" title="MySQL的认识及基本使用">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-28 19:19" pubdate>
-        2021年1月28日 晚上
+      <time datetime="2021-02-25 11:37" pubdate>
+        2021年2月25日 中午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      75 字
+      1k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      12
        分钟
     </span>
   
@@ -224,24 +224,112 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hello World</h1>
+            <h1 style="display: none">MySQL的认识及基本使用</h1>
             
             <div class="markdown-body">
-              <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+              <h1 id="MySQL的认识及基本使用"><a href="#MySQL的认识及基本使用" class="headerlink" title="MySQL的认识及基本使用"></a>MySQL的认识及基本使用</h1><h2 id="一、数据库的相关概念"><a href="#一、数据库的相关概念" class="headerlink" title="一、数据库的相关概念"></a>一、数据库的相关概念</h2><h3 id="1、什么是数据库"><a href="#1、什么是数据库" class="headerlink" title="1、什么是数据库"></a>1、什么是数据库</h3><p>   数据库 (database) 是专门用来组织, 存储和管理数据的仓库</p>
+<h3 id="2、数据库的分类"><a href="#2、数据库的分类" class="headerlink" title="2、数据库的分类"></a>2、数据库的分类</h3><p>目前企业开发中最常用的数据库有以下几种: </p>
+<ol>
+<li><p>MySQL 数据库 (最广泛和最流行的)</p>
+</li>
+<li><p>Oracle 数据库</p>
+</li>
+<li><p>SQL Server 数据库</p>
+</li>
+<li><p>Mongodb 数据库</p>
+</li>
+</ol>
+<h3 id="3、传统数据库的组织结构"><a href="#3、传统数据库的组织结构" class="headerlink" title="3、传统数据库的组织结构"></a>3、传统数据库的组织结构</h3><p>即数据以什么形式来进行存储的, 类似于 excel 表格中的工作簿, 工作表, 数据行, 数据列这四部分, 传统数据库的组织结构分为:</p>
+<p>   数据库 (database), 数据表(table), 数据行(row), 字段(field) 这四大组成部分</p>
+<h3 id="4、安装mysql"><a href="#4、安装mysql" class="headerlink" title="4、安装mysql"></a>4、安装mysql</h3><p>使用 Mysql 数据库需要安装的软件</p>
+<p>   (1) MySQL Server 提供数据存储和服务的软件</p>
+<p>   (2) MySQL Workbench 可视化的 MySQL 管理工具</p>
+<h2 id="二、SQL语句"><a href="#二、SQL语句" class="headerlink" title="二、SQL语句"></a>二、SQL语句</h2><h3 id="1、什么是-SQL"><a href="#1、什么是-SQL" class="headerlink" title="1、什么是 SQL?"></a>1、什么是 SQL?</h3><p>   SQL 的全称是 Structured Query Language, 即结构化的查询语言, 专门用来访问和处理数据库的编程语言</p>
+<h3 id="2、SQL-的关键特点"><a href="#2、SQL-的关键特点" class="headerlink" title="2、SQL 的关键特点"></a>2、SQL 的关键特点</h3><p>   (1) SQL 是一门数据库编程语言</p>
+<p>   (2) 使用 SQL 语言编写出来的代码, 叫做 SQL 语句</p>
+<p>   (3) SQL 语言只能在关系型数据库中使用, 非关系型的数据库不支持</p>
+<h3 id="3、SQL-语言的作用"><a href="#3、SQL-语言的作用" class="headerlink" title="3、SQL 语言的作用"></a>3、SQL 语言的作用</h3><p>   可以实现数据库中所有的增删改查操作</p>
+<ol>
+<li><p>从数据库表中查询数据</p>
+</li>
+<li><p>从数据库表中插入新的数据</p>
+</li>
+<li><p>从数据库表中更新数据</p>
+</li>
+<li><p>从数据库表中删除数据</p>
+</li>
+<li><p>建表, 建库…</p>
+</li>
+</ol>
+<h3 id="4、查询数据"><a href="#4、查询数据" class="headerlink" title="4、查询数据"></a>4、查询数据</h3><ol>
+<li><p>从指定表中查出所有列的数据</p>
+<p><code>SELECT * FROM 表名称</code></p>
+</li>
+<li><p>从指定表中查出指定列的数据</p>
+<p><code>SELECT 列名称 FROM 表名称</code></p>
+</li>
+</ol>
+<p>– 从users表中查询 username 和 status字段的数据<br><code>select username,status from users;</code></p>
+<h3 id="5、插入语句"><a href="#5、插入语句" class="headerlink" title="5、插入语句"></a>5、插入语句</h3><p>向指定的数据表中插入一条数据</p>
+<p>   <code>INSERT INTO 表名称(列1, 列2, ...) VALUES(值1, 值2, ...)</code></p>
+<p>– 插入一条数据<br><code>insert into users (username,password) values(&#39;Tom4&#39;,&#39;456789&#39;);</code></p>
+<p>   <strong>注意:</strong> 多个列和值之间使用逗号隔开, 列和值的顺序要保持一致</p>
+<h3 id="6、更新数据语法"><a href="#6、更新数据语法" class="headerlink" title="6、更新数据语法"></a>6、更新数据语法</h3><p>更新数据表中的某一列或多列数据</p>
+<p>   <code>UPDATE 表名称 SET 列1=值1, 列2=值2 WHERE 列名称=值;</code></p>
+<p>– 将id为4的用户密码更新成 888888,状态码改为1<br> <code>update users set password=&#39;888888&#39;,status=1 where id=3;</code></p>
+<p>  <strong>注意:</strong> SET 后多列数据更新使用逗号隔开, WHERE 后面跟的条件不能省略 </p>
+<h3 id="7、删除数据语法"><a href="#7、删除数据语法" class="headerlink" title="7、删除数据语法"></a>7、删除数据语法</h3><p>   删除数据表中的某一行或多行数据</p>
+<p>   <code>DELETE FROM 表名称 WHERE 列名称=值;</code></p>
+<p>– 删除id为4的用户<br><code>delete from users where id=3;</code></p>
+<h3 id="8、WHERE-子句的作用"><a href="#8、WHERE-子句的作用" class="headerlink" title="8、WHERE 子句的作用"></a>8、WHERE 子句的作用</h3><p>   如果需要有条件的从表中选取数据, 可以使用 WHERE 子句添加到 SQL 语句的末尾</p>
+<p>  例如:  <code>SELECT * FROM 表名称 WHERE 列名称 运算符 值</code></p>
+<p>– 查询id在5和10之间的数据，包含5和10<br><code>select * from users where id between 5 and 10;</code></p>
+<p>– 查询username包含Tom的数据，%表示任意字符<br><code>select * from users where username like &#39;%Tom%&#39;;</code></p>
+<h3 id="9、常见的运算符"><a href="#9、常见的运算符" class="headerlink" title="9、常见的运算符"></a>9、常见的运算符</h3><p>   (1) &gt; 和 &gt;= </p>
+<p>   (2) &lt; 和 &lt;=</p>
+<p>   (3) != 或 &lt;&gt;</p>
+<p>   (4) =</p>
+<p>   (5) BETWEEN</p>
+<p>   (6) LIKE</p>
+<h3 id="10、AND-和-OR-运算符"><a href="#10、AND-和-OR-运算符" class="headerlink" title="10、AND 和 OR 运算符"></a>10、AND 和 OR 运算符</h3><p>   可以在 WHERE 子句中把多个条件结合起来, AND 表示并且, OR 表示或者的意思</p>
+<p>   – 查询表中status值为1并且id大于3的数据</p>
+<p>​    <code>select * from users where status=1 and id&gt;3;</code></p>
+<p>   – 查询表中status值为1或id大于6的数据</p>
+<p>​    <code>select * from users where status=1 or id&gt;6;</code></p>
+<h3 id="11、ORDER-BY-字句"><a href="#11、ORDER-BY-字句" class="headerlink" title="11、ORDER BY 字句"></a>11、ORDER BY 字句</h3><ol>
+<li><p>使用 ORDER BY 子句对结果进行排序</p>
+<p>   SELECT * FROM users ORDER BY status DESC;</p>
+<p>   默认的排序方式为<strong>升序 ASC</strong>, 如果使用<strong>降序可以添加 DESC</strong> 关键字</p>
+</li>
+<li><p>多重排序规则</p>
+<p>   <code>SELECT 列名称 FROM 表名称 ORDER BY 列名称 [排序规则], 列名称 [排序规则]</code></p>
+<p>– 查询表中id值大于3的用户根据id降序排列(注意：where子句在前，order by子句在后)<br><code>select * from users where id&gt;3 order by id desc;</code></p>
+</li>
+<li><p>注意</p>
+<p>   同时使用 ORDER BY 和 WHERE子句时, 应该让 ORDER BY 位于 WHERE 之后, 否则将会产生错误</p>
+</li>
+</ol>
+<p>12、</p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/MySQL/">MySQL</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/MySQL/">MySQL</a>
+                    
+                  </div>
                 
               </div>
               
@@ -252,15 +340,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/04/Ajax%E7%AC%AC%E4%B8%89%E5%A4%A9/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Ajax第三天</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2021/02/21/Node.js%E7%AC%AC%E4%B8%89%E5%A4%A9/">
+                        <span class="hidden-mobile">Node.js（三）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
