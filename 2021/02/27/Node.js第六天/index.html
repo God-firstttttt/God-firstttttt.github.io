@@ -17,7 +17,7 @@
   <meta name="description" content="前端菜鸟">
   <meta name="author" content="Godfirst">
   <meta name="keywords" content="前端">
-  <title>MySQL的认识及基本使用 - God-firstttttt</title>
+  <title>Node.js（六） - God-firstttttt</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="MySQL的认识及基本使用">
+            <span class="h2" id="subtitle" title="Node.js（六）">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-25 11:37" pubdate>
-        2021年2月25日 中午
+      <time datetime="2021-02-27 11:16" pubdate>
+        2021年2月27日 上午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1k 字
+      1.5k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12
+      15
        分钟
     </span>
   
@@ -224,92 +224,69 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">MySQL的认识及基本使用</h1>
+            <h1 style="display: none">Node.js（六）</h1>
             
             <div class="markdown-body">
-              <h1 id="MySQL的认识及基本使用"><a href="#MySQL的认识及基本使用" class="headerlink" title="MySQL的认识及基本使用"></a>MySQL的认识及基本使用</h1><h2 id="一、数据库的相关概念"><a href="#一、数据库的相关概念" class="headerlink" title="一、数据库的相关概念"></a>一、数据库的相关概念</h2><h3 id="1、什么是数据库"><a href="#1、什么是数据库" class="headerlink" title="1、什么是数据库"></a>1、什么是数据库</h3><p>   数据库 (database) 是专门用来组织, 存储和管理数据的仓库</p>
-<h3 id="2、数据库的分类"><a href="#2、数据库的分类" class="headerlink" title="2、数据库的分类"></a>2、数据库的分类</h3><p>目前企业开发中最常用的数据库有以下几种: </p>
+              <h1 id="Node-js第六天-前后端的身份认证"><a href="#Node-js第六天-前后端的身份认证" class="headerlink" title="Node.js第六天 前后端的身份认证"></a>Node.js第六天 前后端的身份认证</h1><h2 id="一、web开发模式"><a href="#一、web开发模式" class="headerlink" title="一、web开发模式"></a>一、web开发模式</h2><h3 id="1、主流的-Web-开发模式"><a href="#1、主流的-Web-开发模式" class="headerlink" title="1、主流的 Web 开发模式"></a>1、主流的 Web 开发模式</h3><ol>
+<li><p>基于客户端渲染的方式</p>
+</li>
+<li><p>基于服务端渲染的方式</p>
+</li>
+</ol>
+<h3 id="2、服务端渲染概念"><a href="#2、服务端渲染概念" class="headerlink" title="2、服务端渲染概念"></a>2、服务端渲染概念</h3><p>   服务端直接把数据动态拼接到 HTML 字符串中, 再把完整的 HTML 页面数据发送给客户端, 这样浏览器就可以直接渲染页面, 不需要进行 Ajax 请求的操作了</p>
+<h3 id="3、服务端渲染的优点"><a href="#3、服务端渲染的优点" class="headerlink" title="3、服务端渲染的优点"></a>3、服务端渲染的优点</h3><ol>
+<li><p>前端渲染更快, 用户体验更好 (不需要首次等待 Ajax 发送请求的过程)</p>
+</li>
+<li><p>有利于 SEO 搜索引擎读取权重词汇 (服务端响应的是完整带标签的 HTML 内容, 百度等爬虫更容器读取信息)</p>
+</li>
+</ol>
+<h3 id="4、服务端渲染的缺点"><a href="#4、服务端渲染的缺点" class="headerlink" title="4、服务端渲染的缺点"></a>4、服务端渲染的缺点</h3><ol>
+<li><p>需要额外的服务器资源, 以及完善的运维体系去管理</p>
+</li>
+<li><p>不利于前后端分离, 由于页面是在服务端进行输出的, 需要前端的代码和 Node.js 服务端部署在一起</p>
+</li>
+</ol>
+<h3 id="5、前后端分离的开发模式"><a href="#5、前后端分离的开发模式" class="headerlink" title="5、前后端分离的开发模式"></a>5、前后端分离的开发模式</h3><p>   依赖于 Ajax 技术的广泛运用, 后端只负责提供 API 接口, 前端使用 Ajax 调用接口渲染页面的开发模式</p>
+<h3 id="6、前后端分离的优点"><a href="#6、前后端分离的优点" class="headerlink" title="6、前后端分离的优点"></a>6、前后端分离的优点</h3><p>   (1) 开发体验好, 各司其职, 效率更高</p>
+<p>   (2) 用户体验好, Ajax 可以在不刷新页面的情况下实现局部更新, 配合 loading 效果体验度较好</p>
+<p>   (3) 减轻服务端的渲染压力, 因为页面最终是在每个用户的浏览器中生成的</p>
+<h3 id="7、前后端分离的缺点"><a href="#7、前后端分离的缺点" class="headerlink" title="7、前后端分离的缺点"></a>7、前后端分离的缺点</h3><p>   (1) 前端渲染耗时, 首屏渲染的体验度不高</p>
+<p>   (2) 不利用 SEO 搜索引擎优化</p>
+<h2 id="二、身份认证"><a href="#二、身份认证" class="headerlink" title="二、身份认证"></a>二、身份认证</h2><h3 id="1、身份认证技术"><a href="#1、身份认证技术" class="headerlink" title="1、身份认证技术"></a>1、身份认证技术</h3><p>   身份认证(Authentication) 又叫 “鉴权”, “权限验证”, “身份验证”, 是指通过一定的手段, 完成用户身份的确认</p>
+<p>  例如: 火车票检票, 微信支付密码等生活场景</p>
+<p>​     Web 开发中的邮箱验证, 短信验证码, 滑动验证码等方式</p>
+<h3 id="2、为什么需要身份认证"><a href="#2、为什么需要身份认证" class="headerlink" title="2、为什么需要身份认证"></a>2、为什么需要身份认证</h3><p>   网站的内容如果涉及到隐私性, 安全性 和 交易性, 即需要身份认证的机制来确保安全</p>
+<h3 id="3、不同开发模式下的身份任证"><a href="#3、不同开发模式下的身份任证" class="headerlink" title="3、不同开发模式下的身份任证"></a>3、不同开发模式下的身份任证</h3><p>   (1) 服务端渲染的推荐使用 Session 认证机制</p>
+<p>   (2) 前后端分离推荐使用 JWT 认证机制</p>
+<h3 id="4、HTTP-协议的特点"><a href="#4、HTTP-协议的特点" class="headerlink" title="4、HTTP 协议的特点"></a>4、HTTP 协议的特点</h3><p>   HTTP 本身是一个无状态的协议, 它不会记录每次发送请求的用户信息, 这会导致服务器无法识别哪个用户发送了请求</p>
+<p>​    如何解决上述的问题？</p>
+<p>   可以借助 <strong>cookie 和 session</strong> 两种技术来存储用户的状态</p>
+<h2 id="三、Cookie技术"><a href="#三、Cookie技术" class="headerlink" title="三、Cookie技术"></a>三、Cookie技术</h2><h3 id="1、什么是-Cookie"><a href="#1、什么是-Cookie" class="headerlink" title="1、什么是 Cookie?"></a>1、什么是 Cookie?</h3><p>   Cookie 是存储在用户浏览器的一段不超过 4KB 的字符串, 它是由一个名称(Name) 和 值(Value) 以及其他几个用于控制 Cookie 有效期, 安全性, 使用范围的可选属性组成的</p>
+<h3 id="2、Cookie-的作用"><a href="#2、Cookie-的作用" class="headerlink" title="2、Cookie 的作用"></a>2、Cookie 的作用</h3><p>   不用域名下的 Cookie 信息是独立的, 每当客户端发送请求时, 会自动把当前域名下所有未过期的 Cookie添加到请求头, 一同发送到服务器</p>
+<h3 id="3、Cookie-的特性"><a href="#3、Cookie-的特性" class="headerlink" title="3、Cookie 的特性"></a>3、Cookie 的特性</h3><p>   (1) 自动发送</p>
+<p>   (2) 域名独立</p>
+<p>   (3) 过期时限</p>
+<p>   (4) 4 KB限制</p>
+<h3 id="4、Cookie-的工作机制"><a href="#4、Cookie-的工作机制" class="headerlink" title="4、Cookie 的工作机制"></a>4、Cookie 的工作机制</h3><p>   客户端(浏览器)第一次发送请求到服务器, 服务器会以响应头的形式向浏览器写入 Cookie 保存, 之后浏览器每次发送请求到服务器都会自动将 Cookie 以请求头的形式发送过去</p>
+<p>  Cookie的更多操作: <a target="_blank" rel="noopener" href="https://www.runoob.com/js/js-cookies.html">https://www.runoob.com/js/js-cookies.html</a></p>
+<h3 id="5、Cookie-技术的缺点"><a href="#5、Cookie-技术的缺点" class="headerlink" title="5、Cookie 技术的缺点"></a>5、Cookie 技术的缺点</h3><p>   Cookie 是存储在浏览器端的, 并且浏览器本身提供了读写 Cookie 的方法, 因此 Cookie 信息很容易被窃取和伪造,重要的隐私信息不建议存放在 Cookie 中</p>
+<h3 id="6、如何解决上述的缺点"><a href="#6、如何解决上述的缺点" class="headerlink" title="6、如何解决上述的缺点"></a>6、如何解决上述的缺点</h3><p>   使用 Session 方案, 用户的状态信息在服务器生成和存储, 浏览器只负责保留一个 sessionID 秘钥, 每次发送请求时携带这个 sessionID 到服务器, 服务器根据这个唯一的 id 值查询对应的用户信息进行返回</p>
+<h2 id="四、Session技术"><a href="#四、Session技术" class="headerlink" title="四、Session技术"></a>四、Session技术</h2><h3 id="1、Session-认证的局限性"><a href="#1、Session-认证的局限性" class="headerlink" title="1、Session 认证的局限性"></a>1、Session 认证的局限性</h3><p>   SessionID 需要借助 cookie 手段存放在浏览器, 当涉及到前端跨域请求后端接口的时候, 需要做额外的配置,才能实现 Session 的认证</p>
+<h3 id="2、如何解决上述的缺点"><a href="#2、如何解决上述的缺点" class="headerlink" title="2、如何解决上述的缺点"></a>2、如何解决上述的缺点</h3><p>   当前端跨域请求后端接口时, 推荐使用 JWT 这种认证方式, 没有和 Cookie 的绑定关系</p>
+<h3 id="3、什么是-JWT-JSON-Web-Token"><a href="#3、什么是-JWT-JSON-Web-Token" class="headerlink" title="3、什么是 JWT (JSON Web Token)?"></a>3、什么是 JWT (JSON Web Token)?</h3><p>   基于token的鉴权机制, 是前端目前最流行的跨域认证解决方案</p>
+<h2 id="五、JWT的工作机制"><a href="#五、JWT的工作机制" class="headerlink" title="五、JWT的工作机制"></a>五、JWT的工作机制</h2><h3 id="1、JWT-的认证机制"><a href="#1、JWT-的认证机制" class="headerlink" title="1、JWT 的认证机制"></a>1、JWT 的认证机制</h3><p>   用户信息通过加密签名后 token 字符串的形式, 保存在客户端浏览器中. 服务器通过解密客户端传来的 token 字符串来认证用户的身份</p>
+<h3 id="2、JWT-的组成部分"><a href="#2、JWT-的组成部分" class="headerlink" title="2、JWT 的组成部分"></a>2、JWT 的组成部分</h3><p>   通常由三部分组成, 使用英文符号.进行分隔: Header.Payload.Signature</p>
+<p>   Header: 头部</p>
+<p>   Payload: 有效荷载, 这里存放的是经过加密后的用户信息</p>
+<p>   Signature: 签名</p>
+<h3 id="3、JWT-使用方式"><a href="#3、JWT-使用方式" class="headerlink" title="3、JWT 使用方式"></a>3、JWT 使用方式</h3><p>   服务端签发 TOKEN 到客户端后, 可以存储到 localStorage 中, 每次发送请求前都要带上这个 TOKEN, 推荐放在HTTP 请求头的 Authorization 字段中 (大事件项目中处理方式一致)</p>
+<p>在 Node.js项目中使用 JWT: </p>
 <ol>
-<li><p>MySQL 数据库 (最广泛和最流行的)</p>
-</li>
-<li><p>Oracle 数据库</p>
-</li>
-<li><p>SQL Server 数据库</p>
-</li>
-<li><p>Mongodb 数据库</p>
+<li><p>先安装 JWT 包</p>
+<p><code>npm i jsonwebtoken express-jwt</code></p>
 </li>
 </ol>
-<h3 id="3、传统数据库的组织结构"><a href="#3、传统数据库的组织结构" class="headerlink" title="3、传统数据库的组织结构"></a>3、传统数据库的组织结构</h3><p>即数据以什么形式来进行存储的, 类似于 excel 表格中的工作簿, 工作表, 数据行, 数据列这四部分, 传统数据库的组织结构分为:</p>
-<p>   数据库 (database), 数据表(table), 数据行(row), 字段(field) 这四大组成部分</p>
-<h3 id="4、安装mysql"><a href="#4、安装mysql" class="headerlink" title="4、安装mysql"></a>4、安装mysql</h3><p>使用 Mysql 数据库需要安装的软件</p>
-<p>   (1) MySQL Server 提供数据存储和服务的软件</p>
-<p>   (2) MySQL Workbench 可视化的 MySQL 管理工具</p>
-<h2 id="二、SQL语句"><a href="#二、SQL语句" class="headerlink" title="二、SQL语句"></a>二、SQL语句</h2><h3 id="1、什么是-SQL"><a href="#1、什么是-SQL" class="headerlink" title="1、什么是 SQL?"></a>1、什么是 SQL?</h3><p>   SQL 的全称是 Structured Query Language, 即结构化的查询语言, 专门用来访问和处理数据库的编程语言</p>
-<h3 id="2、SQL-的关键特点"><a href="#2、SQL-的关键特点" class="headerlink" title="2、SQL 的关键特点"></a>2、SQL 的关键特点</h3><p>   (1) SQL 是一门数据库编程语言</p>
-<p>   (2) 使用 SQL 语言编写出来的代码, 叫做 SQL 语句</p>
-<p>   (3) SQL 语言只能在关系型数据库中使用, 非关系型的数据库不支持</p>
-<h3 id="3、SQL-语言的作用"><a href="#3、SQL-语言的作用" class="headerlink" title="3、SQL 语言的作用"></a>3、SQL 语言的作用</h3><p>   可以实现数据库中所有的增删改查操作</p>
-<ol>
-<li><p>从数据库表中查询数据</p>
-</li>
-<li><p>从数据库表中插入新的数据</p>
-</li>
-<li><p>从数据库表中更新数据</p>
-</li>
-<li><p>从数据库表中删除数据</p>
-</li>
-<li><p>建表, 建库…</p>
-</li>
-</ol>
-<h3 id="4、查询数据"><a href="#4、查询数据" class="headerlink" title="4、查询数据"></a>4、查询数据</h3><ol>
-<li><p>从指定表中查出所有列的数据</p>
-<p><code>SELECT * FROM 表名称</code></p>
-</li>
-<li><p>从指定表中查出指定列的数据</p>
-<p><code>SELECT 列名称 FROM 表名称</code></p>
-</li>
-</ol>
-<p>– 从users表中查询 username 和 status字段的数据<br><code>select username,status from users;</code></p>
-<h3 id="5、插入语句"><a href="#5、插入语句" class="headerlink" title="5、插入语句"></a>5、插入语句</h3><p>向指定的数据表中插入一条数据</p>
-<p>   <code>INSERT INTO 表名称(列1, 列2, ...) VALUES(值1, 值2, ...)</code></p>
-<p>– 插入一条数据<br><code>insert into users (username,password) values(&#39;Tom4&#39;,&#39;456789&#39;);</code></p>
-<p>   <strong>注意:</strong> 多个列和值之间使用逗号隔开, 列和值的顺序要保持一致</p>
-<h3 id="6、更新数据语法"><a href="#6、更新数据语法" class="headerlink" title="6、更新数据语法"></a>6、更新数据语法</h3><p>更新数据表中的某一列或多列数据</p>
-<p>   <code>UPDATE 表名称 SET 列1=值1, 列2=值2 WHERE 列名称=值;</code></p>
-<p>– 将id为4的用户密码更新成 888888,状态码改为1<br> <code>update users set password=&#39;888888&#39;,status=1 where id=3;</code></p>
-<p>  <strong>注意:</strong> SET 后多列数据更新使用逗号隔开, WHERE 后面跟的条件不能省略 </p>
-<h3 id="7、删除数据语法"><a href="#7、删除数据语法" class="headerlink" title="7、删除数据语法"></a>7、删除数据语法</h3><p>   删除数据表中的某一行或多行数据</p>
-<p>   <code>DELETE FROM 表名称 WHERE 列名称=值;</code></p>
-<p>– 删除id为4的用户<br><code>delete from users where id=3;</code></p>
-<h3 id="8、WHERE-子句的作用"><a href="#8、WHERE-子句的作用" class="headerlink" title="8、WHERE 子句的作用"></a>8、WHERE 子句的作用</h3><p>   如果需要有条件的从表中选取数据, 可以使用 WHERE 子句添加到 SQL 语句的末尾</p>
-<p>  例如:  <code>SELECT * FROM 表名称 WHERE 列名称 运算符 值</code></p>
-<p>– 查询id在5和10之间的数据，包含5和10<br><code>select * from users where id between 5 and 10;</code></p>
-<p>– 查询username包含Tom的数据，%表示任意字符<br><code>select * from users where username like &#39;%Tom%&#39;;</code></p>
-<h3 id="9、常见的运算符"><a href="#9、常见的运算符" class="headerlink" title="9、常见的运算符"></a>9、常见的运算符</h3><p>   (1) &gt; 和 &gt;= </p>
-<p>   (2) &lt; 和 &lt;=</p>
-<p>   (3) != 或 &lt;&gt;</p>
-<p>   (4) =</p>
-<p>   (5) BETWEEN</p>
-<p>   (6) LIKE</p>
-<h3 id="10、AND-和-OR-运算符"><a href="#10、AND-和-OR-运算符" class="headerlink" title="10、AND 和 OR 运算符"></a>10、AND 和 OR 运算符</h3><p>   可以在 WHERE 子句中把多个条件结合起来, AND 表示并且, OR 表示或者的意思</p>
-<p>   – 查询表中status值为1并且id大于3的数据</p>
-<p>​    <code>select * from users where status=1 and id&gt;3;</code></p>
-<p>   – 查询表中status值为1或id大于6的数据</p>
-<p>​    <code>select * from users where status=1 or id&gt;6;</code></p>
-<h3 id="11、ORDER-BY-字句"><a href="#11、ORDER-BY-字句" class="headerlink" title="11、ORDER BY 字句"></a>11、ORDER BY 字句</h3><ol>
-<li><p>使用 ORDER BY 子句对结果进行排序</p>
-<p>   SELECT * FROM users ORDER BY status DESC;</p>
-<p>   默认的排序方式为<strong>升序 ASC</strong>, 如果使用<strong>降序可以添加 DESC</strong> 关键字</p>
-</li>
-<li><p>多重排序规则</p>
-<p>   <code>SELECT 列名称 FROM 表名称 ORDER BY 列名称 [排序规则], 列名称 [排序规则]</code></p>
-<p>– 查询表中id值大于3的用户根据id降序排列(注意：where子句在前，order by子句在后)<br><code>select * from users where id&gt;3 order by id desc;</code></p>
-</li>
-<li><p>注意</p>
-<p>   同时使用 ORDER BY 和 WHERE子句时, 应该让 ORDER BY 位于 WHERE 之后, 否则将会产生错误</p>
-</li>
-</ol>
-<p>12、</p>
+<p>  说明: jsonwebtoken 用于生成 Token 字符串信息; express-jwt 用于把 Token 字符串解析为 JSON 对象</p>
 
             </div>
             <hr>
@@ -319,7 +296,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/MySQL/">MySQL</a>
+                      <a class="hover-with-bg" href="/categories/Node-js/">Node.js</a>
                     
                   </div>
                 
@@ -327,7 +304,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/MySQL/">MySQL</a>
+                      <a class="hover-with-bg" href="/tags/Node-js/">Node.js</a>
                     
                   </div>
                 
@@ -340,9 +317,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/27/Node.js%E7%AC%AC%E5%85%AD%E5%A4%A9/">
+                      <a href="/2021/02/27/Node.js%20%E7%AC%AC%E5%9B%9B%E5%A4%A9/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Node.js（六）</span>
+                        <span class="hidden-mobile">Node.js（四）</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -350,8 +327,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/21/Node.js%E7%AC%AC%E4%B8%89%E5%A4%A9/">
-                        <span class="hidden-mobile">Node.js（三）</span>
+                      <a href="/2021/02/25/MySQL%E7%9A%84%E8%AE%A4%E8%AF%86%E5%8F%8A%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+                        <span class="hidden-mobile">MySQL的认识及基本使用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
